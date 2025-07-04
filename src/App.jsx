@@ -25,25 +25,6 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    const scriptId = "scr_685957f96c98bfb37d92bc54";
-    if (document.getElementById(scriptId)) {
-      return;
-    }
-    const s = document.createElement("script");
-    s.id = scriptId;
-    s.src = "https://scripts.converteai.net/41939c78-647d-4f47-9c71-eff775da484f/players/685957f96c98bfb37d92bc54/player.js";
-    s.async = true;
-    document.head.appendChild(s);
-
-    return () => {
-      const existingScript = document.getElementById(scriptId);
-      if (existingScript) {
-        document.head.removeChild(existingScript);
-      }
-    };
-  }, []);
-
   return (
     <>
       <Helmet>
@@ -94,27 +75,10 @@ function App() {
             </h1>
           </motion.div>
 
-          <motion.div 
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.7, duration: 0.8 }}
-            className="w-full max-w-2xl"
-          >
-            <div className="rounded-lg overflow-hidden shadow-2xl">
-              <div id="vid_685957f96c98bfb37d92bc54" style={{position: 'relative', width: '100%', padding: '178.21782178217822% 0 0'}}>
-                <img 
-                  id="thumb_685957f96c98bfb37d92bc54" 
-                  src="https://images.converteai.net/41939c78-647d-4f47-9c71-eff775da484f/players/685957f96c98bfb37d92bc54/thumbnail.jpg" 
-                  style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block'}} 
-                  alt="Vídeo sobre saúde masculina" 
-                />
-                <div 
-                  id="backdrop_685957f96c98bfb37d92bc54" 
-                  style={{WebkitBackdropFilter: 'blur(5px)', backdropFilter: 'blur(5px)', position: 'absolute', top: 0, height: '100%', width: '100%'}}
-                ></div>
-              </div>
-            </div>
-          </motion.div>
+          {/* O novo vídeo embedado via VTurb será carregado no index.html diretamente */}
+          <div className="w-full max-w-2xl mt-4">
+            {/* O elemento <vturb-smartplayer> do vídeo está no index.html */}
+          </div>
         </main>
 
         <footer className="fixed bottom-0 left-0 w-full bg-black border-t-2 border-red-600 py-2 z-50">
